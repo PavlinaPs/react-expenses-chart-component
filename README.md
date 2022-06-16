@@ -86,8 +86,10 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [How to Combine Multiple Inline Style Objects in React?](https://thewebdev.info/2021/05/27/how-to-combine-multiple-inline-style-objects-in-react/)
+- [React JSX - Setting a dynamic :hover color pseudo-class property](https://stackoverflow.com/questions/71249961/react-jsx-setting-a-dynamic-hover-color-pseudoclass-property)
+- [What is the React.js way of handling visibility=hidden?](https://stackoverflow.com/questions/33667773/what-is-the-react-js-way-of-handling-visibility-hidden)
+- [Change value in react js on window resize](https://stackoverflow.com/questions/52037958/change-value-in-react-js-on-window-resize)
 
 ## Author
 
