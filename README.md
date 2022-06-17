@@ -32,16 +32,16 @@ Users should be able to:
 
 | Desktop layout |
 |:--:|
-![Desktop layout](./screenshots/screenshot-desktop-dark.jpg) ![Desktop layout](./screenshots/screenshot-desktop-light.jpg)
+![Desktop layout](./screenshots/screenshot-desktop.jpg) ![Desktop layout](./screenshots/screenshot-desktop-hover.jpg)
 
 | Mobile layout |
 |:--:|
-![Mobile layout](./screenshots/screenshot-mobile-top-dark.jpg) ![Mobile layout](./screenshots/screenshot-mobile-bottom-light.jpg) 
+![Mobile layout](./screenshots/screenshot-mobile-hover.jpg) 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/PavlinaPs/react-expenses-chart-component
+- Live Site URL: https://pavlinaps.github.io/react-expenses-chart-component
 
 ## My process
 
@@ -57,31 +57,61 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Another great challenge, I chose to solve it with the bonus. For the record, the day of submitting was a Friday.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+- ##### Get current day of week
+I needed to render the chart bar background color based on two conditions - day of week and hover. There most likely is a less verbose way. This is what I came up with:
+```jsx
+  let today = new Date();
+  let todayIs = today.getDay();
+  // returns a number, 4 for Thursday
+  let days = data.map(item => item.day);
+  let dayOfWeek = days[todayIs - 1];
+  // -1 to compensate for the 0 indexing
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+- ##### Rendering background color
+I created a variable expenseBgColor. Again, it is a little verbose but it works fine:
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```jsx
+  let expenseBgColor = {backgroundColor: "hsl(10, 79%, 65%)"};
+  if (dayOfWeek === day) {
+    expenseBgColor = {backgroundColor: "hsl(186, 34%, 60%)"};
+  }
+  if (hovered) {
+    expenseBgColor = {backgroundColor: "hsl(10, 79%, 75%)"};
+  } 
+  if (dayOfWeek === day && hovered) {
+    expenseBgColor = {backgroundColor: "hsl(186, 34%, 75%)"}
+  }
+```
+- ##### Hover/focus states
+I set the hover/focus as a state based on onMouseEnter/onMouseLeave and onFocus/onBlur and then rendered the amounts' visibility according to it. 
+```jsx
+<div className="Expenses__chart--hover"
+  style={{visibility: hovered ? 'visible' : 'hidden'}}
+>${amount}</div>
+```
+
+- ##### Accessibility
+I added aria labels for corresponding bars otherwise showing only on hover/focus. The screen reader reads the amounts right away. I checked. Hope I won't get the possible misuse warning again!
+I also added a tabindex to the bars, the bars are "tabable".
+```jsx
+<div 
+  className="Expenses__chart--field"
+  onMouseEnter={() => setHovered(true)}
+  onMouseLeave={() => setHovered(false)}
+  onFocus={() => setHovered(true)}
+  onBlur={() => setHovered(false)}
+  style={{ ...expenseBgColor, ...fieldHeight }}
+  aria-label={amount}
+  tabIndex="0"
+></div>
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+After submitting this challenge I would like to check others' solution for less verbose ways. And proper way of accessibility.
 
 
 ### Useful resources
@@ -90,6 +120,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 - [React JSX - Setting a dynamic :hover color pseudo-class property](https://stackoverflow.com/questions/71249961/react-jsx-setting-a-dynamic-hover-color-pseudoclass-property)
 - [What is the React.js way of handling visibility=hidden?](https://stackoverflow.com/questions/33667773/what-is-the-react-js-way-of-handling-visibility-hidden)
 - [Change value in react js on window resize](https://stackoverflow.com/questions/52037958/change-value-in-react-js-on-window-resize)
+- [How to get the day of week and the month of the year?](https://stackoverflow.com/questions/4822852/how-to-get-the-day-of-week-and-the-month-of-the-year)
+- [Opposite of 'onFocus' in React](https://stackoverflow.com/questions/37542422/opposite-of-onfocus-in-react)
 
 ## Author
 

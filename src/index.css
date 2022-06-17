@@ -13,12 +13,18 @@
   /* font */
   --ff: 'DM Sans', sans-serif;
 
+  --fs-total: 3rem;
   --fs-h1: 2.4rem;
   --fs-normal: 1.8rem;
   --fs-description: 1.5rem;
-  --fs-days: 1.2rem;
   --fs-amounts: 1.3rem;
-  --fs-total: 3rem;
+  --fs-days: 1.2rem;
+
+  --fs-total-desktop: 4.8rem;
+  --fs-h1-desktop: 3.2rem;
+  --fs-description-desktop: 1.8rem;
+  --fs-amounts-desktop: 1.7rem;
+  --fs-days-desktop: 1.45rem;
 
   --fw-regular: 400;
   --fw-bold: 700;
@@ -52,22 +58,21 @@ body {
 .App {
   width: 37.5rem;
   padding: 6.7rem 1.6rem 0rem;
-
-  outline: 1px solid yellowgreen;
   margin: 0 auto;
 }
 
 @media (min-width: 65em) {
-  /* body {
+  body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  } */
+  }
 
   .App {
-    width: 144rem;
-    /* max-width: 144rem; */
+    width: 54rem;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -76,13 +81,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  max-width: 37.5rem;
   height: 9.7rem;
   padding: 0 2.5rem 0 2rem;
   color: var(--clr-very-pale-orange);
   background-color: var(--clr-red);
   border-radius: 1rem;
-
 }
 
 .Header__logo {
@@ -100,14 +104,37 @@ body {
   font-weight: var(--fw-bold);
 }
 
+@media (min-width: 65em) {
+  .Header {
+    width: 54rem;
+    max-width: none;
+    height: 12.5rem;
+    padding: 0 4rem 0 3.3rem;
+    border-radius: 2rem;
+  }
+
+  .Header__logo {
+    width: 7.3rem;
+  }
+
+  .Header__description {
+    margin-top: 0.4rem;
+    font-size: var(--fs-description-desktop);
+  }
+
+  .Header__balance {
+    margin-top: 0.6rem;
+    font-size: var(--fs-h1-desktop);
+  }
+}
+
 /* Expenses */
 .Expenses {
   margin-top: 1.6rem;
-  width: 100%;
+  max-width: 37.5rem;
   padding: 2.4rem 2rem 2.5rem;
   background-color: var(--clr-very-pale-orange);
   border-radius: 1rem;
-  
 }
 
 .Expenses__title {
@@ -115,6 +142,21 @@ body {
   font-size: var(--fs-h1);
   font-weight: var(--fw-bold);
   color: var(--clr-dark-brown);
+}
+
+@media (min-width: 65em) {
+  .Expenses {
+    margin-top: 2.4rem;
+    width: 54rem;
+    max-width: none;
+    padding: 3.2rem 4rem 3.9rem;
+    border-radius: 2rem;
+  }
+
+  .Expenses__title {
+    margin-bottom: 2.2rem;
+    font-size: var(--fs-h1-desktop);
+  }
 }
 
 /* Chart */
@@ -153,6 +195,31 @@ body {
   text-align: center;
 }
 
+@media (min-width: 65em) {
+  .Chart__container {
+    padding: 4.4rem 0 3.3rem;
+  }
+  
+  .Expenses__chart--field {
+    width: 5rem;
+    border-radius: 0.6rem;
+  }
+  
+  .Expenses__chart--hover {
+    top: -4.8rem;
+    left: -1.2rem;
+    min-width: 7.4rem;
+    padding: 0.9rem 0;
+    font-size: var(--fs-amounts-desktop);
+    border-radius: 0.6rem;
+  }
+  
+  .Expenses__chart--day {
+    margin-top: 0.95rem;
+    font-size: var(--fs-days-desktop);
+  }
+}
+
 /* Stats */
 .Stats__container {
   display: flex;
@@ -183,15 +250,48 @@ body {
   text-align: right;
 }
 
+@media (min-width: 65em) {
+  .Stats__container {
+    padding: 3.2rem 0 0rem;
+  }
+  
+  .Stats__description {
+    font-size: var(--fs-description-desktop);
+  }
+  
+  .Stats__total {
+    margin-top: 0.1rem;
+    font-size: var(--fs-total-desktop);
+  }
+  
+  .Stats__difference--container {
+    margin-bottom: 1rem;
+    font-size: var(--fs-description-desktop);
+  }
+  
+  .Stats__difference {
+    font-size: var(--fs-description-desktop);
+    text-align: right;
+  }
+}
+
 /* Attribution */
 .attribution {
+  width: 100%;
   margin: 7.1rem 0 0.5rem;
   font-size: 1.1rem;
-  color: var(--clr-small-text);
+  color: var(--clr-dark-brown);
   text-align: center; 
 }
 
 .attribution a {
   color: hsl(228, 45%, 44%);
   text-decoration: underline;
+}
+
+@media (min-width: 65em) {
+  .attribution {
+    width: 54.3rem;
+    margin: 0.5rem auto;
+  }
 }

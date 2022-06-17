@@ -29,8 +29,14 @@ let data = [
     }
   ]
 
-let highestExpense = data.reduce((acc, cur) => {
-    return cur.amount > acc ? acc = cur.amount : acc;
-}, 0)
+// let highestExpense = data.reduce((acc, cur) => {
+//     return cur.amount > acc ? acc = cur.amount : acc;
+// }, 0)
 
-console.log(highestExpense);
+// console.log(highestExpense);
+
+let today = new Date();
+let todayIs = today.getDay();
+let days = data.map(item => item.day);
+let dayOfWeek = days[todayIs - 1];
+console.log(todayIs);
