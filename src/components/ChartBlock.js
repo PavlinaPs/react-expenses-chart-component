@@ -34,10 +34,11 @@ const ChartBlock = ({ day, amount, dayOfWeek }) => {
         onFocus={() => setHovered(true)}
         onBlur={() => setHovered(false)}
         style={{ ...expenseBgColor, ...fieldHeight }}
-        aria-label={amount}
+        aria-details={amount}
         tabIndex="0"
       >
         <div className="Expenses__chart--hover"
+          role="tooltip"
           style={{visibility: hovered ? 'visible' : 'hidden'}}
         >${amount}</div>
       </div>

@@ -94,8 +94,9 @@ I set the hover/focus as a state based on onMouseEnter/onMouseLeave and onFocus/
 ```
 
 - ##### Accessibility
-I added aria labels for corresponding bars otherwise showing only on hover/focus. The screen reader reads the amounts right away. I checked. Hope I won't get the possible misuse warning again!
+I added aria labels for corresponding bars otherwise showing only on hover/focus. The screen reader reads the amounts right away. I checked. Hope I won't get the possible aria misuse warning again!
 I also added a tabindex to the bars, the bars are "tabable".
+EDIT: And yes, it is an incorrect aria attribute. The correct one is aria-details (at lease I hope).
 ```jsx
 <div 
   className="Expenses__chart--field"
